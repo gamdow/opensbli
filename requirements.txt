@@ -1,4 +1,4 @@
-sympy=1.0
+sympy==1.0
 -e git+https://github.com/gamdow/OPS.git@178ec4f7c1ccb1917a85b4248820cfecb912ac6f#egg=OPS
 h5py
 pytest
