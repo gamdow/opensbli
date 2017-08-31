@@ -1,5 +1,4 @@
 sympy==1.0
--e git+https://github.com/gamdow/OPS.git#egg=OPS
 h5py
 pytest
 flake8
