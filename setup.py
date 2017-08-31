@@ -32,7 +32,7 @@ setup(name='OpenSBLI',
       'Environment :: Console',
       'Intended Audience :: Science/Research',
       'Natural Language :: English',
-      'Programming Language :: Python :: 2.7',
+      'Programming Language :: Python :: 3.6',
       'Topic :: Scientific/Engineering :: Physics',
       'Topic :: Software Development :: Code Generators',
       ]
