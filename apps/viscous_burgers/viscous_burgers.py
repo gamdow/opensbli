@@ -123,7 +123,7 @@ l1 = ['niter', 'c0', 'd', 'deltat', 'precision', 'name']
 l2 = [niter, c0, d, deltat, "double", "viscous_burgers"]
 
 # Constants in the system
-simulation_parameters = dict(zip(l1,l2))
+simulation_parameters = dict(list(zip(l1,l2)))
 
 # Generate the code.
 opsc = OPSC(grid, spatial_discretisation, temporal_discretisation, boundary_condition, initial_conditions, io, simulation_parameters)

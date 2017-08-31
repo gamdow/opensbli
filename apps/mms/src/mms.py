@@ -94,10 +94,10 @@ temp = EinsteinTerm('x_j')
 x = temp.get_array(temp.get_indexed(ndim))
 source_value = [-cos(x[0])*cos(x[1]) - 1.5*cos(x[1])*sin(x[0]) - 0.5*sin(x[0])*sin(x[1])]
 source = EinsteinTerm("s")
-x_grid = dict(zip(x, [grid.Idx[0]*grid.deltas[0], grid.Idx[1]*grid.deltas[1]]))
+x_grid = dict(list(zip(x, [grid.Idx[0]*grid.deltas[0], grid.Idx[1]*grid.deltas[1]])))
 source_value = [v.subs(x_grid) for v in source_value]
 expanded_equations[0][0] = expanded_equations[0][0].subs(source, source_value[0])
-print expanded_equations[0][0]
+print(expanded_equations[0][0])
 
 # Perform the spatial discretisation
 spatial_discretisation = SpatialDiscretisation(expanded_equations, expanded_formulas, grid, spatial_scheme)
@@ -125,7 +125,7 @@ io = FileIO(temporal_discretisation.prognostic_variables)
 deltat = dt(max(deltas), velocity=2.0) # NOTE: We'll use an over-estimate for the velocity here in case of over-shoots.
 T = 100.0 # NOTE: Make sure that the simulation runs long enough to ensure a steady-state solution is reached.
 niter = ceil(T/deltat)
-print "Going to do %d iterations." % niter
+print("Going to do %d iterations." % niter)
 
 u0 = 1.0
 u1 = -0.5

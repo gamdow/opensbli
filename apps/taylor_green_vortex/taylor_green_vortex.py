@@ -163,10 +163,10 @@ start = time.time()
 # Grid parameters like number of points, length in each direction, and delta in each direction
 l1 = ['niter', 'Re', 'Pr', 'gama', 'Minf', 'mu', 'precision', 'name', 'deltat']
 
-print "Going to do %d iterations." % niter
+print("Going to do %d iterations." % niter)
 l2 = [niter, 1600, 0.71, 1.4, 0.1, 1.0, "double", "taylor_green_vortex", deltat]
 # Constants in the system
-simulation_parameters = dict(zip(l1,l2))
+simulation_parameters = dict(list(zip(l1,l2)))
 
 # Generate the code.
 OPSC(grid, spatial_discretisation, temporal_discretisation, boundary_condition, initial_conditions, io, simulation_parameters, red_eq)

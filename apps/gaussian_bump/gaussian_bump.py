@@ -94,7 +94,7 @@ temporal_scheme = RungeKutta(3) # Third-order Runge-Kutta time-stepping scheme.
 length = [10.0]*ndim
 np = [10]*ndim
 deltas = [length[i]/np[i] for i in range(len(length))]
-print "Grid spacing is: ", deltas
+print("Grid spacing is: ", deltas)
 grid = Grid(ndim,{'delta':deltas, 'number_of_points':np})
 
 # Perform the spatial discretisation
@@ -123,8 +123,8 @@ io = FileIO(temporal_discretisation.prognostic_variables)
 deltat = dt(max(deltas), velocity=1.5) # NOTE: We'll use an over-estimate for the velocity here in case of over-shoots.
 T = 50.0
 niter = ceil(T/deltat)
-print "Time-step size is %f" % deltat
-print "Going to do %d iterations." % niter
+print("Time-step size is %f" % deltat)
+print("Going to do %d iterations." % niter)
 
 u0 = 0.1
 u1 = 0.0

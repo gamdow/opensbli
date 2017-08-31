@@ -45,7 +45,7 @@ def plot(path):
     # Read in the simulation output
     dump = glob.glob(path + "/wave_*.h5")
     if not dump or len(dump) > 1:
-        print "Error: No dump file found, or more than one dump file found."
+        print("Error: No dump file found, or more than one dump file found.")
         sys.exit(1)
     f = h5py.File(dump[-1], 'r')
     group = f["wave_block"]

@@ -36,7 +36,7 @@ def plot(path):
     # Read in the simulation output
     dump = glob.glob(path + "/viscous_burgers_*.h5")
     if not dump or len(dump) > 1:
-        print "Error: No dump file found, or more than one dump file found."
+        print("Error: No dump file found, or more than one dump file found.")
         sys.exit(1)
     f = h5py.File(dump[-1], 'r')
     group = f["viscous_burgers_block"]
@@ -45,7 +45,7 @@ def plot(path):
     
     # Ignore the 2 halo nodes at either end of the domain
     phi = phi[halo:nx+halo]
-    print phi
+    print(phi)
     # Grid spacing
     dx = 1.0/(nx);
     

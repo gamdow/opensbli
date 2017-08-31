@@ -35,7 +35,7 @@ def plot(path):
     # Read in the simulation output
     dump = glob.glob(path + "/gaussian_bump_*.h5")
     if not dump or len(dump) > 1:
-        print "Error: No dump file found, or more than one dump file found."
+        print("Error: No dump file found, or more than one dump file found.")
         sys.exit(1)
     f = h5py.File(dump[-1], 'r')
     group = f["gaussian_bump_block"]
@@ -53,7 +53,7 @@ def plot(path):
     # Coordinate arrays
     x = numpy.zeros(nx*ny).reshape((nx, ny))
     y = numpy.zeros(nx*ny).reshape((nx, ny))
-    print phi
+    print(phi)
     plt.imshow(phi)
     plt.show()
 

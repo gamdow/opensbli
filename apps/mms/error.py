@@ -78,7 +78,7 @@ def compute_error(degree, simulation_index, number_of_points):
     path = "./mms_%d_%d/mms_%d_%d_opsc_code/" % (degree, simulation_index, degree, simulation_index)
     dump = glob.glob(path + "/mms_*.h5")
     if not dump or len(dump) > 1:
-        print "Error: No dump file found, or more than one dump file found."
+        print("Error: No dump file found, or more than one dump file found.")
         sys.exit(1)
     f = h5py.File(dump[-1], 'r')
     group = f["mms_%d_%d_block" % (degree, simulation_index)]
@@ -88,7 +88,7 @@ def compute_error(degree, simulation_index, number_of_points):
     
     # Ignore the 2 halo nodes at the left (and bottom) end of the domain. Include one strip of halo points at the right (and top) of the domain to enforce periodicity in the solution field plot.
     phi = phi[halo:nx+halo+1, halo:ny+halo+1]
-    print phi.shape
+    print(phi.shape)
     
     # Grid spacing. Note: The length of the domain is divided by nx (or ny) and not nx-1 (or ny-1) because of the periodicity. In total we have nx+1 points, but we only solve nx points; the (nx+1)-th point is set to the same value as the 0-th point to give a full period, to save computational effort.
     dx = (2.0*pi)/(nx)
@@ -131,7 +131,7 @@ def plot():
     # Plot the error against the grid spacing dx.
     Lx = 2*pi
     
-    degrees = range(2, 13, 2)
+    degrees = list(range(2, 13, 2))
     errors = []
     dxs = []
     for d in range(len(degrees)):
@@ -144,7 +144,7 @@ def plot():
         errors.append(error)
         dxs.append(dx)
     
-    print "Errors in the L2 norm: ", errors
+    print("Errors in the L2 norm: ", errors)
     plt.clf()
     
     colours_expected = ["-r", "-g", "-b", "-y", "-c", "-k"]

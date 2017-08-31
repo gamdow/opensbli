@@ -120,12 +120,12 @@ io = FileIO(temporal_discretisation.prognostic_variables)
 c0 = 0.5
 deltat = dt(deltas[0], c0)
 niter = ceil(1.0/deltat)
-print "Iterations: %d" % niter
+print(("Iterations: %d" % niter))
 l1 = ['niter', 'c0', 'deltat', 'precision', 'name']
 l2 = [niter, c0, deltat, "double", "wave"]
 
 # Constants in the system
-simulation_parameters = dict(zip(l1,l2))
+simulation_parameters = dict(list(zip(l1,l2)))
 
 # Generate the code.
 opsc = OPSC(grid, spatial_discretisation, temporal_discretisation, boundary_condition, initial_conditions, io, simulation_parameters)

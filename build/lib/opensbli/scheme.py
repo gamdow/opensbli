@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #    OpenSBLI: An automatic code generator for solving differential equations.
 #    Copyright (C) 2016 Satya P. Jammy, Christian T. Jacobs, Neil D. Sandham
 
@@ -14,20 +16,20 @@
 #    GNU General Public License for more details.
 
 #    You should have received a copy of the GNU General Public License
-#    along with OpenSBLI.  If not, see <http://www.gnu.org/licenses/>.
+#    along with OpenSBLI.  If not, see <http://www.gnu.org/licenses/>
 
-import os, os.path
-import sys
-import subprocess
-import shutil
 
-base_name = "gaussian_bump"
+class Scheme(object):
 
-# Generate the code
-exit_code = subprocess.call("python %s.py" % base_name, shell=True)
-if(exit_code != 0):
-    print("Something went wrong when generating the code.")
-    sys.exit(1)
+    """ A numerical discretisation scheme. """
 
-# Run the simulation
-exit_code = subprocess.call("cd %s_opsc_code; make %s_seq; ./%s_seq" % (base_name, base_name, base_name), shell=True)
+    def __init__(self, name, order):
+        """ Initialise the scheme.
+
+        :arg str name: The name of the scheme.
+        :arg int order: The order of the scheme.
+        """
+
+        self.name = name
+        self.order = order
+        return

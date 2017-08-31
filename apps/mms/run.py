@@ -48,7 +48,7 @@ for degree in range(2, 13, 2):
         # Generate the code
         exit_code = subprocess.call("cd %s; python mms.py" % (directory_name), shell=True)
         if(exit_code != 0):
-            print "Something went wrong when generating the code for simulation %d." % i
+            print("Something went wrong when generating the code for simulation %d." % i)
             sys.exit(1)
             
         # Copy over the Makefile and substitute in the correct simulation name.
